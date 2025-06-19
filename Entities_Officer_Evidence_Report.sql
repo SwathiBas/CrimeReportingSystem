@@ -12,13 +12,7 @@ create table officers (
     foreign key (agencyid) references lawenforcementagencies(agencyid)
 );
 
-create table evidence (
-    evidenceid int auto_increment primary key,
-    description text not null,
-    locationfound varchar(100),
-    incidentid int,
-    foreign key (incidentid) references incidents(incidentid)
-);
+
 create table evidence (
     evidenceid int auto_increment primary key,
     description text not null,
