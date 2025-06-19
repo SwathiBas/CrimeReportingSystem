@@ -3,7 +3,7 @@
 CREATE DATABASE CrimeReportingSystem;
 USE CrimeReportingSystem;
 
-
+-- Creating a table called Victims
 CREATE TABLE IF NOT EXISTS Victims (
     VictimID INT PRIMARY KEY,
     FirstName VARCHAR(50),
@@ -12,6 +12,8 @@ CREATE TABLE IF NOT EXISTS Victims (
     Gender VARCHAR(10),
     ContactInfo VARCHAR(100)
 );
+
+-- Creating a table called Suspects
 CREATE TABLE Suspects
 (
 	SuspectID INT PRIMARY KEY, 
@@ -22,6 +24,7 @@ CREATE TABLE Suspects
     ContactInfo BIGINT
 );
 
+--Creating a table called LawEnforcementAgencies
 CREATE TABLE LawEnforcementAgencies 
 (
 	AgencyID INT PRIMARY KEY, 
@@ -31,6 +34,8 @@ CREATE TABLE LawEnforcementAgencies
     OfficerID INT,
     CONSTRAINT fk_Lea_Off FOREIGN KEY (OfficerID) REFERENCES Officers(OfficerID)    
 );
+
+--Creating a table called Incidents
 CREATE TABLE IF NOT EXISTS Incidents (
     IncidentID INT PRIMARY KEY,
     IncidentType VARCHAR(100),
