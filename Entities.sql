@@ -48,7 +48,9 @@ CREATE TABLE IF NOT EXISTS Incidents (
     FOREIGN KEY (VictimID) REFERENCES Victims(VictimID),
     FOREIGN KEY (SuspectID) REFERENCES Suspects(SuspectID)
 );
-create table officers (
+
+-- Creating a table called Officers
+create table Officers (
     officerid int auto_increment primary key,
     firstname varchar(50) not null,
     lastname varchar(50) not null,
@@ -59,7 +61,8 @@ create table officers (
     foreign key (agencyid) references lawenforcementagencies(agencyid)
 );
 
-create table evidence (
+-- Creating a table called Evidence
+create table Evidence (
     evidenceid int auto_increment primary key,
     description text not null,
     locationfound varchar(100),
@@ -67,7 +70,8 @@ create table evidence (
     foreign key (incidentid) references incidents(incidentid)
 );
 
-create table reports (
+-- Creating a table called Reports
+create table Reports (
     reportid int auto_increment primary key,
     incidentid int,
     reportingofficer int,
