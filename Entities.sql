@@ -50,37 +50,39 @@ CREATE TABLE IF NOT EXISTS Incidents (
 );
 
 -- Creating a table called Officers
-create table Officers (
-    officerid int auto_increment primary key,
-    firstname varchar(50) not null,
-    lastname varchar(50) not null,
-    badgenumber varchar(20) unique not null,
+create table if not exists Officers (
+    OfficerID int primary key,
+    FirstName varchar(50) not null,
+    LastName varchar(50) not null,
+    BadgeNumber varchar(20) unique not null,
     Rank_Details varchar(30),
-    contactinformation varchar(100),
-    agencyid int,
-    foreign key (agencyid) references lawenforcementagencies(agencyid)
+    ContactInformation varchar(100),
+    AgencyID int,
+    foreign key (agencyid) references lawEnforcementAgencies(agencyid)
 );
+
 
 -- Creating a table called Evidence
 create table Evidence (
-    evidenceid int auto_increment primary key,
-    description text not null,
-    locationfound varchar(100),
-    incidentid int,
-    foreign key (incidentid) references incidents(incidentid)
+    EvidenceID int primary key,
+    Description text not null,
+    LocationFound varchar(100),
+    IncidentID int,
+    foreign key (IncidentID) references incidents(IncidentID)
 );
 
 -- Creating a table called Reports
 create table Reports (
-    reportid int auto_increment primary key,
-    incidentid int,
-    reportingofficer int,
-    reportdate datetime,
-    reportdetails text,
+    ReportID int primary key,
+    IncidentID int,
+    ReportingOfficer int,
+    ReportDate datetime,
+    ReportDetails text,
     status enum('draft', 'finalized') default 'draft',
-    foreign key (incidentid) references incidents(incidentid),
-    foreign key (reportingofficer) references officers(officerid)
+    foreign key (Incidentid) references Incidents(IncidentID),
+    foreign key (ReportingOfficer) references Officers(OfficerID)
 );
+
 
 
 
